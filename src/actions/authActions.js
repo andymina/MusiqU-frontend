@@ -1,11 +1,11 @@
 import axios from 'axios';
 import setAuthToken from '../utils/setAuthToken';
 import jwt_decode from 'jwt-decode';
-import { GET_ERRORS, SET_CURRENT_USER, USER_LOADING } from './types';
+import { GET_ERRORS, SET_CURRENT_USER, USER_LOADING, HOST_URL } from './types';
 
 // Signup user
 export const signupUser = (userData, history) => (dispatch) => {
-	axios.post("/api/users/signup", userData).then((res) => {
+	axios.post(HOST_URL + "/api/users/signup", userData).then((res) => {
 		// Redirect to login if sign up was good
 		// CHANGE LOGIN ROUTE TO: /login
 		history.push("/");
@@ -19,7 +19,7 @@ export const signupUser = (userData, history) => (dispatch) => {
 
 // Login user
 export const loginUser = (userData) => (dispatch) => {
-	axios.post("/api/users/login", userData).then((res) => {
+	axios.post(HOST_URL + "/api/users/login", userData).then((res) => {
 		// Save the key to localStorage
 		const { token } = res.data;
 		localStorage.setItem("jwtToken", token);
@@ -54,7 +54,7 @@ export const logoutUser = () => (dispatch) => {
 
 // Update the current user information
 export const updateUser = (updated_user) => (dispatch) => {
-	axios.put('/api/users/update', updated_user).catch((err) => {
+	axios.put(HOST_URL + "/api/users/update", updated_user).catch((err) => {
 		console.log("err:", err);
 	});
 

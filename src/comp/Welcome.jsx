@@ -3,6 +3,7 @@ import axios from 'axios';
 import { connect } from 'react-redux';
 import { Redirect, withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import { HOST_URL } from '../actions/types';
 
 class Welcome extends React.Component {
 	constructor(props){
@@ -11,7 +12,7 @@ class Welcome extends React.Component {
 	}
 
 	createRoom = async () => {
-		const { data } = await axios.post("/api/rooms/create", this.props.user);
+		const { data } = await axios.post(HOST_URL + "/api/rooms/create", this.props.user);
 		this.setState({ code: data });
 	}
 
@@ -24,7 +25,7 @@ class Welcome extends React.Component {
 	}
 
 	handleConnect = async () => {
-		const { data } = await axios.post("/api/spotify/connect");
+		const { data } = await axios.post(HOST_URL + "/api/spotify/connect");
 		window.location.href = data;
 	}
 

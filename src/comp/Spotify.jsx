@@ -6,6 +6,7 @@ import axios from 'axios';
 import querystring from 'query-string';
 import { connect } from 'react-redux';
 import { updateUser } from '../actions/authActions';
+import { HOST_URL } from '../actions/types';
 
 class Spotify extends React.Component {
 	constructor(props){
@@ -26,7 +27,7 @@ class Spotify extends React.Component {
 			user: user
 		};
 
-		const { data } = await axios.post('/api/spotify/callback', req);
+		const { data } = await axios.post(HOST_URL + "/api/spotify/callback", req);
 		const { updated_user } = data;
 		this.props.updateUser(updated_user);
 		this.setState({ loading: false });

@@ -12,6 +12,7 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { logoutUser, updateUser } from '../../actions/authActions';
 import { updateRoom } from '../../actions/roomActions';
+import { HOST_URL } from '../../actions/types';
 import isEmpty from 'is-empty';
 import axios from 'axios';
 import io from 'socket.io-client';
@@ -29,7 +30,7 @@ class Room extends React.Component {
 
 	handleJoin = async () => {
 		// Change IP with WiFi
-		const socket = io("146.95.38.175:5000");
+		const socket = io(HOST_URL);
 		const { room_code } = this.props.match.params;
 
 		socket.emit('join-room', this.props.user, room_code);

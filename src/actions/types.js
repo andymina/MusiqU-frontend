@@ -9,3 +9,4 @@ export const UPDATE_STATUS = "UPDATE_STATUS";
 export const QUEUE_SONG = "QUEUE_SONG";
 export const PLAY_SONG = "PLAY_SONG";
 export const PAUSE_SONG = "PAUSE_SONG";
+export const HOST_URL = "https://musiqu-backend.herokuapp.com";

@@ -4,6 +4,7 @@ import SearchResult from './SearchResult';
 import { connect } from 'react-redux';
 import { updateUser } from '../../actions/authActions';
 import { updateQueue } from '../../actions/roomActions';
+import { HOST_URL } from '../../actions/types';
 import axios from 'axios';
 
 class Search extends React.Component {
@@ -35,7 +36,7 @@ class Search extends React.Component {
 
 			if (diff >= 3300){
 				// refresh the token, and update the user
-				axios.post('/api/spotify/refresh', this.props.user).then((response) => {
+				axios.post(HOST_URL + "/api/spotify/refresh", this.props.user).then((response) => {
 					let user = response.data;
 					this.props.updateUser(user);
 
@@ -43,7 +44,7 @@ class Search extends React.Component {
 						user: user,
 						q: this.state.search_field
 					};
-					axios.post('/api/spotify/search', params).then((response) => {
+					axios.post(HOST_URL + "/api/spotify/search", params).then((response) => {
 						const { tracks } = response.data;
 
 						// Refine the array of tracks to be rendered
@@ -61,7 +62,7 @@ class Search extends React.Component {
 					user: this.props.user,
 					q: this.state.search_field
 				};
-				axios.post('/api/spotify/search', params).then((response) => {
+				axios.post(HOST_URL + "/api/spotify/search", params).then((response) => {
 					const { tracks } = response.data;
 
 					// Refine the array of tracks to be rendered
