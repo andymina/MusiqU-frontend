@@ -1,0 +1,94 @@
+@import url('https://fonts.googleapis.com/css?family=Fira+Code&display=swap');
+
+.text-purple {
+	color: #392F4B;
+}
+
+.text-red {
+	color: #DB504A;
+}
+
+.bg-purple {
+	background-color: #392F4B;
+}
+
+.bg-red {
+	background-color: #DB504A
+}
+
+.heading {
+	font-size: 2.5em;
+}
+
+.action-box {
+	width: 40vw;
+	height: 60vh;
+	padding: 1%;
+}
+
+.divider {
+	width: 25%;
+	background-color: white;
+}
+
+.custom-form-control, .custom-form-control:focus {
+	background-color: #392F4B;
+	border: 0;
+}
+
+.nav-item {
+	color: white;
+	background-color: transparent;
+}
+
+.nav-item:hover {
+	text-decoration: none;
+	color: #392F4B;
+}
+
+.dashboard-button {
+	background-color: #272727;
+	color: white;
+}
+
+.dashboard-button:hover {
+	background-color: #DB504A;
+	color: white;
+}
+
+.loading {
+  animation: spin infinite 5s linear;
+  height: 50vh;
+}
+
+.room-code {
+	font-family: 'Fira Code', monospace;
+}
+
+.add-button {
+	color: #DB504A;
+}
+
+.add-button:hover {
+	text-shadow: 1px 1px gray;
+}
+
+.current-listeners-container {
+	height: 50vh;
+}
+
+#logout-button {
+	background-color: transparent;
+	border-color: transparent;
+	color: white;
+	height: 100%;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(360deg);
+  }
+  to {
+    transform: rotate(0deg);
+  }
+}
