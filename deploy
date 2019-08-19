@@ -12,4 +12,4 @@ git checkout -b deploy
 npm run build
 git add build -f
 git commit --allow-empty -m 'Deploying'
-git push --force heroku deploy:master
+git push --force https://git.heroku.com/musiqu-frontend.git deploy:master
