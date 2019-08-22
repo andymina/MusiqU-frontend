@@ -92,7 +92,7 @@ class Signup extends React.Component {
 										value={this.state.password}
 										onChange={this.handleChange}
 										id="password"
-										type="text"
+										type="password"
 										className="form-control text-white bg-purple custom-form-control"/>
 									{errors.password ? <span className="text-purple lead">{errors.password}</span> : null}
 								</div>
@@ -103,7 +103,7 @@ class Signup extends React.Component {
 										value={this.state.password2}
 										onChange={this.handleChange}
 										id="password2"
-										type="text"
+										type="password"
 										className="form-control text-white bg-purple custom-form-control"/>
 									{errors.password2 ? <span className="text-purple lead">{errors.password2}</span> : null}
 								</div>

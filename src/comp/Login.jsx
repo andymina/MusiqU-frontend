@@ -80,7 +80,7 @@ class Login extends React.Component {
 										value={this.state.password}
 										onChange={this.handleChange}
 										id="password"
-										type="text"
+										type="password"
 										className="form-control text-white bg-purple custom-form-control"/>
 									{errors.password ? <span className="text-purple lead">{errors.password}</span> : null}
 								</div>
