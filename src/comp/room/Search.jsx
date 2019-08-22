@@ -33,24 +33,52 @@ class Search extends React.Component {
 			// Check if the user's token needs to be refreshed
 			const current = Math.floor(Date.now() / 1000);
 			const diff = current - this.props.user.spotify_exp;
-			const params = {
-				user: this.props.user,
-				q: this.state.search_field
-			};
-			axios.post(HOST_URL + "/api/spotify/search", params).then((response) => {
-				const { tracks } = response.data;
 
-				// Refine the array of tracks to be rendered
-				let updated = tracks.map((element) =>
-					<SearchResult
-						key={element.uri}
-						data={element}
-						handleQueue={this.handleQueue}/>
-				);
-				this.setState({ tracks: updated });
-			}).catch((err) => {
-				console.log(err);
-			});
+			if (diff >= 3300){
+				// refresh the token, and update the user
+				axios.post(HOST_URL + "/api/spotify/refresh", this.props.user).then((response) => {
+					let user = response.data;
+					this.props.updateUser(user);
+
+					const params = {
+						user: user,
+						q: this.state.search_field
+					};
+					axios.post(HOST_URL + "/api/spotify/search", params).then((response) => {
+						const { tracks } = response.data;
+
+						// Refine the array of tracks to be rendered
+						let updated = tracks.map((element) =>
+							<SearchResult
+								key={element.uri}
+								data={element}
+								handleQueue={this.handleQueue}/>
+						);
+						this.setState({ tracks: updated });
+					});
+				});
+			} else {
+				const params = {
+					user: this.props.user,
+					q: this.state.search_field
+				};
+				axios.post(HOST_URL + "/api/spotify/search", params).then((response) => {
+					const { tracks } = response.data;
+
+					// Refine the array of tracks to be rendered
+					let updated = tracks.map((element) =>
+						<SearchResult
+							key={element.uri}
+							data={element}
+							handleQueue={this.handleQueue}/>
+					);
+					this.setState({ tracks: updated });
+				}).catch((err) => {
+					console.log(err);
+				});
+			}
+		} else {
+			console.log("bad");
 		}
 	}
 
