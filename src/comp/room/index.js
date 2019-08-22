@@ -70,7 +70,6 @@ class Room extends React.Component {
 
 		this.state.socket.on('update-room', (room) => {
 			this.props.updateRoom(room);
-			setTimeout(() => this.state.socket.emit('request-update'), room.song.length + 1);
 		});
 
 		return (
