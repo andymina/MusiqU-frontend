@@ -18,7 +18,7 @@ class Welcome extends React.Component {
 
 	joinRoom = () => {
 		// Change to a beautiful modal <3
-		const answer = prompt("Enter the room code");
+		const answer = prompt("Enter the room code").toUppercase();
 
 		// Input validation
 		this.setState({ code: answer });
