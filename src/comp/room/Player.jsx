@@ -23,6 +23,10 @@ class Player extends React.Component {
 		this.props.socket.on('update-queue', (queue) => {
 			this.props.updateQueue(queue);
 		});
+
+		this.props.socket.on('play-error', () => {
+			alert("No active device found. Open Spotify on the target device and try again.");
+		});
 	}
 
 	play = () => {
