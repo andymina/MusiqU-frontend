@@ -3,7 +3,7 @@
 set -e
 
 function cleanup_at_exit {
-  git checkout master
+  git checkout dev
   git branch -D deploy
 }
 

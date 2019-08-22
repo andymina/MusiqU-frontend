@@ -18,14 +18,14 @@ class Welcome extends React.Component {
 
 	joinRoom = () => {
 		// Change to a beautiful modal <3
-		const answer = prompt("Enter the room code");
+		const answer = prompt("Enter the room code").toUppercase();
 
 		// Input validation
 		this.setState({ code: answer });
 	}
 
 	handleConnect = async () => {
-		const { data } = await axios.post(HOST_URL + "/api/spotify/connect");
+		const { data } = await axios.post(HOST_URL + "/api/spotify/connect", { withCredentials: true });
 		window.location.href = data;
 	}
 
