@@ -25,7 +25,7 @@ class Welcome extends React.Component {
 	}
 
 	handleConnect = async () => {
-		const { data } = await axios.post(HOST_URL + "/api/spotify/connect", {}, { withCredentials: true });
+		const { data } = await axios.post(HOST_URL + "/api/spotify/connect");
 		window.location.href = data;
 	}
 
