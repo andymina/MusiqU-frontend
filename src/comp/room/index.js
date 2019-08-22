@@ -68,9 +68,9 @@ class Room extends React.Component {
 				</section>
 			);
 
-			this.state.socket.on('update-room', (room) => {
-				this.props.updateRoom(room);
-			});
+		this.state.socket.on('update-room', (room) => {
+			this.props.updateRoom(room);
+		});
 
 		return (
 			<>
