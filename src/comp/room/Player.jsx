@@ -25,7 +25,7 @@ class Player extends React.Component {
 		});
 
 		this.props.socket.on('play-error', () => {
-			alert("No active device found. Open Spotify on the target device and try again.");
+			alert("No active device found. Open Spotify on the target device, play any song, and try again.");
 		});
 	}
 
