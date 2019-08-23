@@ -83,7 +83,6 @@ class Player extends React.Component {
 						{this.props.is_playing ?
 								<div>
 									<i className="text-red fa-3x far fa-pause-circle" onClick={this.pause}></i>
-									<i class="text-red fa-3x far fa-forward" onClick={this.vote}></i>
 								</div> :
 								<i className="text-red fa-3x far fa-play-circle" onClick={this.resume}></i>}
 					</div>
