@@ -34,7 +34,7 @@ class Welcome extends React.Component {
 
 		if (this.state.code !== "") return <Redirect to={"/room/" + this.state.code}/>;
 		else return (
-			<div className="col-lg-6 my-auto">
+			<div className="col-lg-12 my-auto">
 				<div className="row">
 					<div className="col-lg-12">
 						<img

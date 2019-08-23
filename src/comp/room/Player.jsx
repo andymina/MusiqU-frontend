@@ -41,6 +41,10 @@ class Player extends React.Component {
 		this.props.socket.emit('resume');
 	}
 
+	vote = () => {
+		this.props.socket.emit('vote');
+	}
+
 	render(){
 		if (isEmpty(this.props.song) && this.props.queue.length === 0)
 			return (
@@ -77,7 +81,10 @@ class Player extends React.Component {
 							text={this.props.song.artist}/>
 
 						{this.props.is_playing ?
-								<i className="text-red fa-3x far fa-pause-circle" onClick={this.pause}></i> :
+								<div>
+									<i className="text-red fa-3x far fa-pause-circle" onClick={this.pause}></i>
+									<i class="text-red fa-3x far fa-forward" onClick={this.vote}></i>
+								</div> :
 								<i className="text-red fa-3x far fa-play-circle" onClick={this.resume}></i>}
 					</div>
 				</div>

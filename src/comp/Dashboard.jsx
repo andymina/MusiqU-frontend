@@ -17,9 +17,7 @@ const Dashboard = (props) => {
 		<section className="bg-purple" style={{height: '92vh'}}>
 			<div className="container-fluid h-100">
 				<div className="row h-100">
-					<Friends/>
 					<Welcome/>
-					<Help/>
 				</div>
 			</div>
 		</section>
